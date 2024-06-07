@@ -363,6 +363,11 @@
                 <artifactId>ruoyi-demo</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>ruoyi-stirstation</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
             <!--  工作流模块  -->
             <dependency>
@@ -379,6 +384,7 @@
         <module>ruoyi-common</module>
         <module>ruoyi-extend</module>
         <module>ruoyi-modules</module>
+        <module>ruoyi-modules/ruoyi-stirstation</module>
     </modules>
     <packaging>pom</packaging>
 
