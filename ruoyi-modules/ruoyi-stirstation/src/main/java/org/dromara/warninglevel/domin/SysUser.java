@@ -5,7 +5,10 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.dromara.common.mybatis.core.domain.BaseEntity;
 import org.dromara.common.tenant.core.TenantEntity;
+
+import java.io.Serial;
 
 /**
  * 用户对象 sys_user
@@ -16,8 +19,7 @@ import org.dromara.common.tenant.core.TenantEntity;
 @Data
 @NoArgsConstructor
 @TableName("sys_user")
-public class SysUser {
-
+public class SysUser  {
     /**
      * 用户ID
      */
@@ -26,13 +28,7 @@ public class SysUser {
     /**
      * 用户账号
      */
+    @TableId(value = "user_name")
     private String userName;
-
-    /**
-     * 预警id
-     */
-    private Long warninglevelId;
-
-
 
 }

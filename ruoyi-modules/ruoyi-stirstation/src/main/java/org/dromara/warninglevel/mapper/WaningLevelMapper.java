@@ -1,8 +1,6 @@
 package org.dromara.warninglevel.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.dromara.warninglevel.domin.SysUser;
 
 import java.util.List;
@@ -15,11 +13,19 @@ import java.util.List;
  */
 public interface WaningLevelMapper extends BaseMapper {
 
-
+    /**
+     * 修改用户的预警级别
+     * @param warninglevelList 用户数组
+     * @param warninglevelId 预警级别ID
+     * @return boolean
+     */
+    Boolean updateIds(String warninglevelList, Long warninglevelId);
     /**
      * 查询用户列表
-     * @param page 分页参数
+     * @param id 预警级别id
      * @return
      */
-    Page<SysUser> selectWarningLevelById(IPage<SysUser> page);
+    String getInfo(Long id);
+
+    List<SysUser> getUserList();
 }

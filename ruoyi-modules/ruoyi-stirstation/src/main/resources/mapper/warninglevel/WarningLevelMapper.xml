@@ -3,12 +3,19 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.dromara.warninglevel.mapper.WaningLevelMapper">
-        <select id="selectWarningLevelById" resultType="org.dromara.warninglevel.domin.SysUser">
+        <select id="getInfo" resultType="String">
             select
-                u.user_id,u.user_name,s.warninglevel_id
-            FROM sys_user u
-                LEFT JOIN
-                stirstation_user_warninglevel s ON u.user_id = s.user_id
-        </select>
+                user_id
+            FROM stirstation_user_warninglevel where warninglevel_id = #{id}
+            </select>
+    <select id="getUserList" resultType="org.dromara.warninglevel.domin.SysUser">
+        select
+            user_id,user_name
+        FROM sys_user
+    </select>
+
+    <update id="updateIds" parameterType="org.dromara.warninglevel.domin.bo.WarningLevelBo">
+update stirstation_user_warninglevel SET user_id = #{warninglevelList} WHERE warninglevel_id = #{warninglevelId}
+    </update>
 
 </mapper>
