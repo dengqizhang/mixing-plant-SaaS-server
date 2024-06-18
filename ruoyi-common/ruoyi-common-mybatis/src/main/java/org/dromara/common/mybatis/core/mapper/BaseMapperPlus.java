@@ -194,6 +194,7 @@ public interface BaseMapperPlus<T, V> extends BaseMapper<T> {
      */
     default <C, P extends IPage<C>> P selectVoPage(IPage<T> page, Wrapper<T> wrapper, Class<C> voClass) {
         List<T> list = this.selectList(page, wrapper);
+//        System.out.println("查询数组"+list);
         IPage<C> voPage = new Page<>(page.getCurrent(), page.getSize(), page.getTotal());
         if (CollUtil.isEmpty(list)) {
             return (P) voPage;

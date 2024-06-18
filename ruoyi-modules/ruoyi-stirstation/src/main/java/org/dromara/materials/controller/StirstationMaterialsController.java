@@ -42,6 +42,7 @@ public class StirstationMaterialsController extends BaseController {
     @SaCheckPermission("materials:materials:list")
     @GetMapping("/list")
     public TableDataInfo<StirstationMaterialsVo> list(StirstationMaterialsBo bo, PageQuery pageQuery) {
+        System.out.println(bo);
         return stirstationMaterialsService.queryPageList(bo, pageQuery);
     }
 
