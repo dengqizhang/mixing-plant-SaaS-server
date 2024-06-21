@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.dromara.productionTask.mapper.StirstationProductionTaskMapper">
+    <select id="queryList" resultType="org.dromara.productionTask.domain.vo.StirstationProductionTaskVo">
+        SELECT *
+        FROM stirstation_production_task
+        <where>
+            <if test="bo.taskName != null">
+                AND task_name = #{bo.taskName}
+            </if>
+            <if test="bo.productionMixproportion != null">
+                AND production_mixproportion = #{bo.productionMixproportion}
+            </if>
+            <if test="bo.taskType != null">
+                AND task_type = #{bo.taskType}
+            </if>
+            <if test="bo.startTime != null and bo.endTime != null">
+                AND start_time between #{bo.startTime} and #{bo.endTime}
+            </if>
+        </where>
+    </select>
+
+    <select id="mixproportionList" resultType="org.dromara.productionTask.domain.bo.MixproportionBo">
+        SELECT id,mixproportion_name
+        FROM stirstation_mixproportion
+    </select>
+
+</mapper>

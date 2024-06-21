@@ -104,4 +104,7 @@ public class StirstationMixproportionController extends BaseController {
                           @PathVariable Long[] ids) {
         return toAjax(stirstationMixproportionService.deleteWithValidByIds(List.of(ids), true));
     }
+
+
+
 }
